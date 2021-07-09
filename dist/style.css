@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+header {
+  height: 180px;
+  background-color: darkcyan;
+  color: white;
+  text-align: center;
+  line-height: 180px;
+  font-size: 7vh;
+}
+
+.container {
+  height: 1000px;
+  margin-top: 20px;
+}
+
+.row {
+  margin: 0 auto;
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
