@@ -5,6 +5,8 @@ const path = require('path');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
+
+const getHtml = require('./src/html_template');
 const employeeArr = [];
 
 const managerQuestionArr = [
@@ -225,8 +227,14 @@ function questionJunction(data) {
         });
 
     default:
-      console.log('You are done!');
-      console.log(employeeArr);
+      // console.log(employeeArr);
+      const htmlData = getHtml(employeeArr);
+      fs.writeFile(path.join(__dirname, './dist/index.html'), htmlData, err => {
+        if (err) {
+          throw new Error(err);
+        }
+        console.log('You are done!')
+      });
       break;
   };
 };
