@@ -7,9 +7,20 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  color: teal;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 header {
   height: 180px;
-  background-color: darkcyan;
+  background-color: teal;
   color: white;
   text-align: center;
   line-height: 180px;
@@ -23,8 +34,88 @@ header {
 
 .row {
   margin: 0 auto;
-  width: 75%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.col-4 {
+  width: 275px;
+  height: 350px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: white;
+  margin: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px black;
+}
+
+.card-title {
+  height: 35%;
+  background-color: teal;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+}
+
+.name {
+  font-size: 1.8rem;
+}
+
+.role {
+  margin-top: 5%;
+  font-size: 1.4rem;
+}
+
+.role i {
+  margin-right: 10px;
+}
+
+.card-detail {
+  background-color: whitesmoke;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-detail ul {
+  width: 86%;
+  margin: 0 auto;
+}
+
+.card-detail ul li {
+  margin: 0 auto;
+  height: 5vh;
+  border-top: 1px solid lightslategray;
+  border-left: 1px solid lightslategray;
+  border-right: 1px solid lightslategray;
+}
+
+.card-detail ul li:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-detail ul li:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 1px solid lightslategray;
+}
+
+.card-detail ul li p {
+  line-height: 5vh;
+  padding-left: 10px;
+}
+
+.card-detail ul li p a {
+  line-height: 5vh;
+  padding-left: 10px;
 }

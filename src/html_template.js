@@ -6,7 +6,7 @@ function employeeCard(employee) {
   switch (employee.getRole()) {
     case 'Manager':
       roleEl = `<i class="fas fa-mug-hot"></i>`;
-      newEl = `office #: ${employee.getOfficeNumber()}`;
+      newEl = `Office Number: ${employee.getOfficeNumber()}`;
       break;
     case 'Engineer':
       roleEl = `<i class="fas fa-glasses"></i>`;
