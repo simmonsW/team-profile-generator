@@ -1,6 +1,6 @@
   # Team Profile Generator
 
-  <img src="team-profile-generator-screenshot" width="100%" />
+  <img src="team-profile-generator-screenshot.png" width="100%" />
   
   ## Table of Contents
   * [Description](#description)
