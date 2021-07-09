@@ -117,6 +117,61 @@ const engineerQuestionArr = [
   }
 ];
 
+const internQuestionArr = [
+  {
+    type: 'input',
+    name: 'name',
+    message: "What is your intern's name?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's name");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'id',
+    message: "what is your intern's employee id?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's id");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: "What is your intern's email address?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's email");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'school',
+    message: "What is your intern's school?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's school name");
+        return false;
+      }
+    }
+  }
+];
+
 const rolePrompt = [
   {
     type: 'list',
@@ -161,9 +216,14 @@ function questionJunction(data) {
         });
 
     case 'Intern':
-      console.log('you chose Intern');
-      pushAndReset();
-      break;
+
+      return inquirer
+        .prompt(internQuestionArr)
+        .then(({ name, id, email, school }) => {
+          const employee = new Intern(name, id, email, school);
+          pushAndReset(employee);
+        });
+
     default:
       console.log('You are done!');
       console.log(employeeArr);
