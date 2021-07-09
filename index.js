@@ -62,6 +62,61 @@ const managerQuestionArr = [
   }
 ];
 
+const engineerQuestionArr = [
+  {
+    type: 'input',
+    name: 'name',
+    message: "What is your engineer's name?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's name");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'id',
+    message: "what is your engineer's employee id?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's id");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: "What is your engineer's email address?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's email");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'github',
+    message: "What is your engineer's GitHub account?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's GitHub name");
+        return false;
+      }
+    }
+  }
+];
+
 const rolePrompt = [
   {
     type: 'list',
@@ -97,9 +152,14 @@ function questionJunction(data) {
         });
 
     case 'Engineer':
-      console.log('you chose Engineer');
-      pushAndReset();
-      break;
+
+      return inquirer
+        .prompt(engineerQuestionArr)
+        .then(({ name, id, email, github }) => {
+          const employee = new Engineer(name, id, email, github);
+          pushAndReset(employee);
+        });
+
     case 'Intern':
       console.log('you chose Intern');
       pushAndReset();
