@@ -6,13 +6,13 @@ test('Creates a Manager object', () => {
   expect(typeof(manager)).toBe('object');
 });
 
-test('manager has an office number', () => {
+test('Manager has an office number', () => {
   const manager = new Manager('Micheal Scott', 1, 'micheal.scott@dm.com', 2);
 
   expect(manager.getOfficeNumber()).toBe(2);
 });
 
-test('manager has a role of manager', () => {
+test('Manager has a role of Manager', () => {
   const manager = new Manager('Micheal Scott', 1, 'micheal.scott@dm.com', 2);
 
   expect(manager.getRole()).toBe('Manager');

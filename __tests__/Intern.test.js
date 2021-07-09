@@ -6,13 +6,13 @@ test('creates an Intern object', () => {
   expect(typeof(intern)).toBe('object');
 });
 
-test('intern has a school', () => {
+test('Intern has a school', () => {
   const intern = new Intern('Ryan Howard', 12, 'ryan.howard@dm.com', 'University of Scranton');
 
   expect(intern.getSchool()).toBe('University of Scranton');
 });
 
-test('intern has a role of intern', () => {
+test('Intern has a role of Intern', () => {
   const intern = new Intern('Ryan Howard', 12, 'ryan.howard@dm.com', 'University of Scranton');
 
   expect(intern.getRole()).toBe('Intern');
