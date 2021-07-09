@@ -5,6 +5,62 @@ const path = require('path');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
+const employeeArr = [];
+
+const managerQuestionArr = [
+  {
+    type: 'input',
+    name: 'name',
+    message: "What is your manager's name?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's name");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'id',
+    message: "what is your manager's employee id?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's id");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: "What is your manager's email address?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's email");
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'officeNumber',
+    message: "What is your manager's office number?",
+    validate: input => {
+      if (input) {
+        return true;
+      } else {
+        console.log("Please enter the employee's email");
+        return false;
+      }
+    }
+  }
+];
 
 const rolePrompt = [
   {
@@ -32,9 +88,14 @@ function questionJunction(data) {
   // const role = data.role;
   switch (data.role) {
     case 'Manager':
-      console.log('you chose Manager');
-      pushAndReset();
-      break;
+
+      return inquirer
+        .prompt(managerQuestionArr)
+        .then(({ name, id, email, officeNumber }) => {
+          const employee = new Manager(name, id, email, officeNumber);
+          pushAndReset(employee);
+        });
+
     case 'Engineer':
       console.log('you chose Engineer');
       pushAndReset();
@@ -45,11 +106,13 @@ function questionJunction(data) {
       break;
     default:
       console.log('You are done!');
+      console.log(employeeArr);
       break;
   };
 };
 
-function pushAndReset() {
+function pushAndReset(data) {
+  employeeArr.push(data);
   initPrompt();
 };
 
